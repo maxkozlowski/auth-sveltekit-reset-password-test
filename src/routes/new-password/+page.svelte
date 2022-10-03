@@ -9,9 +9,9 @@
         name="password"
         value={values?.password ?? ""}
         type="password"
-        placeholder="Nowe hasło"
+        placeholder="New Password"
         required
         minlength="6"
     />
-    <button class="btn">Zatwierdź</button>
+    <button class="btn">Confirm</button>
 </form>
