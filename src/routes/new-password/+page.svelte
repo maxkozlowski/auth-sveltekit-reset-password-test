@@ -13,5 +13,5 @@
         required
         minlength="6"
     />
-    <button class="btn">Confirm</button>
+    <button>Confirm</button>
 </form>

@@ -13,10 +13,7 @@
 	};
 </script>
 
-<br />
-<br />
-<br />
-<div class="mb-[500px]">
+<div>
 	<form method="POST" use:enhance={handleSubmit}>
 		<div class="mt-5">
 			<input
@@ -29,15 +26,15 @@
 				required
 			/>
 		</div>
-		<div class="mt-5">
+		<div>
 			<button disabled={loading} class="btn">Reset</button>
 		</div>
 	</form>
 </div>
 
 {#if form?.error}
-	<div class="mt-5">Error</div>
+	<div>Error</div>
 {/if}
 {#if form?.message}
-	<div class="mt-5">Check your email!</div>
+	<div>Check your email!</div>
 {/if}
