@@ -8,8 +8,11 @@ export const actions: Actions = {
 		const email = formData.get('email') as string;
 
 		const { data, error } = await supabaseClient.auth.api.resetPasswordForEmail(
-            email
-          )
+			email,
+			{
+				redirectTo: `${url.origin}/new-password`
+			}
+		)
 
 		if (error) {
 			return invalid(400, {
