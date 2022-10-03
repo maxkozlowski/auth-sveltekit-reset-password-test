@@ -2,7 +2,9 @@
 	import { applyAction, enhance, type SubmitFunction } from '$app/forms';
 	import { invalidateAll } from '$app/navigation';
 
-	export let form: any;
+	export let errors: Record<string, string> = {};
+	export let values: Record<string, string> = {};
+	export let message: string = '';
 	let loading = false;
 
 	const handleSubmit: SubmitFunction = () => {
@@ -19,9 +21,12 @@
 
 <section class="columns mt-6 pt-6">
 	<div class="column is-half is-offset-one-quarter">
-		<h1 class="title">Sign in</h1>
-		{#if form?.error}
-			<div class="block notification is-danger">{form.error}</div>
+		<h1 class="title">Sign up</h1>
+		{#if errors}
+			<div class="block notification is-danger">{errors.form}</div>
+		{/if}
+		{#if message}
+			<div class="block notification is-primary">{message}</div>
 		{/if}
 		<form method="post" use:enhance={handleSubmit}>
 			<div class="field">
@@ -30,7 +35,7 @@
 					<input
 						id="email"
 						name="email"
-						value={form?.values?.email ?? ''}
+						value={values?.email ?? ''}
 						class="input"
 						type="email"
 						placeholder="Email"
@@ -44,6 +49,7 @@
 					<input
 						id="password"
 						name="password"
+						value={values?.password ?? ''}
 						class="input"
 						type="password"
 						placeholder="Password"
@@ -53,14 +59,14 @@
 			</div>
 			<div class="field">
 				<p class="control">
-					<button disabled={loading} class="button is-fullwidth is-link">Sign in</button>
+					<button disabled={loading} class="button is-fullwidth is-link">Sign up</button>
 				</p>
 			</div>
 		</form>
 
 		<div class="mt-6">
 			<p class="has-text-centered">
-				Don't have an account? <a href="/signup">Sign up</a>
+				Already have an account? <a href="/">Sign in</a>
 			</p>
 		</div>
 	</div>
